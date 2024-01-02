@@ -1,15 +1,18 @@
-NAME = Game
-CC = clang
-CFLAGS =  -g -Wall -Werror -Wextra
+NAME = game
+CC = gcc
+CFLAGS = -g -Wall -Werror -Wextra
 
 SRCS = main.c
 
 OBJS = $(SRCS:.c=.o)
 
+
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
 MINILIBX_DIR = mlx_linux
 MINILIBX = $(MINILIBX_DIR)/libmlx_Linux.a
-INCLUDES = -I $(MINILIBX_DIR)
-LDFLAGS =  -L$(MINILIBX_DIR) -lmlx_Linux -lXext -lX11 -lm -lz
+INCLUDES = -I $(MINILIBX_DIR) -I $(LIBFT_DIR)
+LDFLAGS =  -L$(MINILIBX_DIR) -lmlx_Linux -L$(LIBFT_DIR) -lft -lXext -lX11 -lm -lz
 
 all: $(NAME)
 
