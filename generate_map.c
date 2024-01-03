@@ -6,7 +6,7 @@
 /*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:54:26 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/03 13:23:02 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/03 18:01:36 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	printlinked_list(t_list **lst)
 	tmp = *lst;
 	while (tmp)
 	{
-		printf("%s", (char*)tmp->content);
+		printf("%s", tmp->content);
 		tmp = tmp->next;
 	}
 }
@@ -36,7 +36,7 @@ t_list	*generate_map(void)
 	fd = open("map.ber", O_RDONLY);
 	final_map = malloc(sizeof(t_list));
 	if (!final_map)
-		return ;
+		return (NULL);
 	line = get_next_line(fd);
 	str = ft_strdup(line);
 	final_map->content = str;
@@ -52,6 +52,33 @@ t_list	*generate_map(void)
 	close(fd);
 	printlinked_list(&final_map);
 	return (final_map);
+}
+
+
+void	display_map(t_list **final_map)
+{
+	int i;
+	t_list *tmp;
+
+	tmp = *final_map;
+	while (tmp)
+	{
+		while (tmp->content)
+		{
+			if (tmp->content[i] == '1')
+				render_wall();
+			if (tmp->content[i] == '0')
+				render_grond();
+			if (tmp->content[i] == 'P')
+				render_player();
+			if (tmp->content[i] == 'C')
+				render_item();
+			if (tmp->content[i] == 'E')
+				render_exit();
+			i++;
+		}
+		tmp = tmp->next;
+	}
 }
 
 int main()
