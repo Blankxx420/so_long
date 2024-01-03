@@ -18,6 +18,9 @@ all: $(NAME)
 
 $(MINILIBX):
 	make -C $(MINILIBX_DIR)
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 	
 $(NAME): $(MINILIBX) $(OBJS)
 	$(CC) $(OBJS) $(MINILIBX) -o $(NAME) $(CFLAGS) $(INCLUDES) $(LDFLAGS)
