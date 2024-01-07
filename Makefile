@@ -2,7 +2,8 @@ NAME = game
 CC = gcc
 CFLAGS = -g -Wall -Werror -Wextra
 
-SRCS = main.c
+SRCS = main.c \
+		exit.c
 
 OBJS = $(SRCS:.c=.o)
 
