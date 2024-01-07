@@ -6,7 +6,7 @@
 /*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/01 13:31:50 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/07 11:07:23 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@ typedef struct	s_vars {
 	void	*win;
 }				t_vars;
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
+typedef struct	s_img {
+	void 	*img;
+	char	*path;
+	int		width;
+	int		height;
+}				t_img;
+
+int close_game(t_vars *vars);
+int	key_close_game(int keycode, t_vars *vars);
 
 #endif
