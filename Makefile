@@ -3,7 +3,9 @@ CC = gcc
 CFLAGS = -g -Wall -Werror -Wextra
 
 SRCS = main.c \
-		exit.c
+		exit.c \
+		generate_map.c \
+		render.c
 
 OBJS = $(SRCS:.c=.o)
 

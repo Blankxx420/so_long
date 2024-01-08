@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   generate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:54:26 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/03 18:01:36 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/08 14:26:47 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,39 +50,35 @@ t_list	*generate_map(void)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	printlinked_list(&final_map);
 	return (final_map);
 }
 
 
-void	display_map(t_list **final_map)
+void	display_map(t_list **final_map, t_vars **vars)
 {
-	int i;
+	int x;
+	int y;
 	t_list *tmp;
 
 	tmp = *final_map;
+	y = 0;
 	while (tmp)
-	{
-		while (tmp->content)
+	{	x = 0;
+		while (tmp->content[x])
 		{
-			if (tmp->content[i] == '1')
-				render_wall();
-			if (tmp->content[i] == '0')
-				render_grond();
-			if (tmp->content[i] == 'P')
-				render_player();
-			if (tmp->content[i] == 'C')
-				render_item();
-			if (tmp->content[i] == 'E')
-				render_exit();
-			i++;
+			if (tmp->content[x] == '1')
+				render_wall(vars, x * 48, y * 48);
+			if (tmp->content[x] == '0')
+				render_ground(vars, x * 48, y * 48);
+			if (tmp->content[x] == 'P')
+				render_player(vars, x * 48, y * 48);
+			if (tmp->content[x] == 'C')
+				render_item(vars, x * 48, y * 48);
+			if (tmp->content[x] == 'E')
+				render_wall(vars, x * 48, y * 48);
+			x++;
 		}
 		tmp = tmp->next;
+		y++;
 	}
-}
-
-int main()
-{
-	generate_map();
-	return (0);
 }
