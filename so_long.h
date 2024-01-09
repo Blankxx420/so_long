@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/08 14:21:20 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:40:41 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct	s_vars {
 	void	*mlx;
 	void	*win;
+	
 }				t_vars;
 
 typedef struct	s_sprite {

@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:54:26 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/08 14:26:47 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:46:39 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_list	*generate_map(void)
 	t_list	*map;
 	
 	fd = open("map.ber", O_RDONLY);
-	final_map = malloc(sizeof(t_list));
+	final_map = ft_calloc(1 , sizeof(t_list));
 	if (!final_map)
 		return (NULL);
 	line = get_next_line(fd);
@@ -49,6 +49,7 @@ t_list	*generate_map(void)
 		ft_lstadd_back(&final_map, map);
 		line = get_next_line(fd);
 	}
+	free(line);
 	close(fd);
 	return (final_map);
 }
