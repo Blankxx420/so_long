@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   generate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:54:26 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/09 15:46:39 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/10 08:40:11 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ t_list	*generate_map(void)
     while (line != NULL)
 	{	str = ft_strdup(line);
 		free(line);
+		line = get_next_line(fd);
 		map = ft_lstnew(str);
 		ft_lstadd_back(&final_map, map);
-		line = get_next_line(fd);
+			
 	}
-	free(line);
 	close(fd);
 	return (final_map);
 }
