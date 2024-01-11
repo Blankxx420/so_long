@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:29:31 by brguicho          #+#    #+#             */
-/*   Updated: 2023/12/30 01:39:04 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/11 11:26:03 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_read_and_extract(int fd, char **stock)
 			free(buffer);
 			return ;
 		}
-		*stock = ft_strjoin(*stock, buffer);
+		*stock = ft_strjoinf(*stock, buffer);
 	}
 	free(buffer);
 }
