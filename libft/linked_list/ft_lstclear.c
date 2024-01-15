@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:51:09 by brguicho          #+#    #+#             */
-/*   Updated: 2023/11/09 15:03:48 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/15 12:54:09 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		{
 			next = tmp->next;
 			del(tmp->content);
-			free((tmp));
+			free(tmp);
 			tmp = next;
 		}
 		(*lst) = NULL;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 11:20:25 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/08 14:23:06 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/15 12:51:39 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(void)
 {
 	t_vars		*vars;
-	t_list		*finalmap;
 
 	vars = malloc(sizeof(t_vars));
 	if (!vars)
@@ -29,8 +28,8 @@ int	main(void)
 		free(vars->mlx);
 		return (1);
 	}
-	finalmap = generate_map();
-	display_map(&finalmap, &vars);
+	vars->finalmap = generate_map();
+	display_map(&vars->finalmap, &vars);
 	mlx_key_hook(vars->win, key_close_game, vars);
 	mlx_hook(vars->win, 17, 0L, close_game, vars);
 	mlx_loop(vars->mlx);
