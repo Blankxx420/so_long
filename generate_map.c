@@ -6,7 +6,7 @@
 /*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:54:26 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/10 08:40:11 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/15 13:52:19 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	display_map(t_list **final_map, t_vars **vars)
 			if (tmp->content[x] == '0')
 				render_ground(vars, x * 48, y * 48);
 			if (tmp->content[x] == 'P')
-				render_player(vars, x * 48, y * 48);
+				render_player_down(vars, x * 48, y * 48);
 			if (tmp->content[x] == 'C')
 				render_item(vars, x * 48, y * 48);
 			if (tmp->content[x] == 'E')

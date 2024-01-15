@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:37:24 by blankx            #+#    #+#             */
-/*   Updated: 2024/01/09 15:43:19 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/15 13:34:44 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,49 @@ void    render_wall(t_vars **vars, int x, int y)
     mlx_put_image_to_window(ptr->mlx, ptr->win, img.img, x, y);
     mlx_destroy_image(ptr->mlx, img.img);
 }
-void    render_player(t_vars **vars, int x, int y)
+void    render_player_down(t_vars **vars, int x, int y)
 {
     t_sprite    img;
     t_vars      *ptr;
 
     ptr = *vars;
     img.path = "asset/ACharDown.xpm";
+    img.img = mlx_xpm_file_to_image(ptr->mlx, img.path, &img.width, &img.height);
+    mlx_put_image_to_window(ptr->mlx, ptr->win, img.img, x, y);
+    mlx_destroy_image(ptr->mlx, img.img);
+}
+
+void    render_player_right(t_vars **vars, int x, int y)
+{
+    t_sprite    img;
+    t_vars      *ptr;
+
+    ptr = *vars;
+    img.path = "asset/ACgarRight.xpm";
+    img.img = mlx_xpm_file_to_image(ptr->mlx, img.path, &img.width, &img.height);
+    mlx_put_image_to_window(ptr->mlx, ptr->win, img.img, x, y);
+    mlx_destroy_image(ptr->mlx, img.img);
+}
+
+void    render_player_up(t_vars **vars, int x, int y)
+{
+    t_sprite    img;
+    t_vars      *ptr;
+
+    ptr = *vars;
+    img.path = "asset/ACharUP.xpm";
+    img.img = mlx_xpm_file_to_image(ptr->mlx, img.path, &img.width, &img.height);
+    mlx_put_image_to_window(ptr->mlx, ptr->win, img.img, x, y);
+    mlx_destroy_image(ptr->mlx, img.img);
+}
+
+void    render_player_left(t_vars **vars, int x, int y)
+{
+    t_sprite    img;
+    t_vars      *ptr;
+
+    ptr = *vars;
+    img.path = "asset/ACharLeft.xpm";
     img.img = mlx_xpm_file_to_image(ptr->mlx, img.path, &img.width, &img.height);
     mlx_put_image_to_window(ptr->mlx, ptr->win, img.img, x, y);
     mlx_destroy_image(ptr->mlx, img.img);
