@@ -6,80 +6,85 @@
 /*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:54:26 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/15 13:52:19 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/16 14:57:21 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
-
-void	printlinked_list(t_list **lst)
+int	count_line(char *str)
 {
-	t_list	*tmp;
-
-	tmp = *lst;
-	while (tmp)
-	{
-		printf("%s", tmp->content);
-		tmp = tmp->next;
-	}
-}
-
-t_list	*generate_map(void)
-{
-    char	*line;
-	char 	*str;
-    int		fd;
-	t_list	*final_map;
-	t_list	*map;
+	int count;
+	int	fd;
+	char *line;
 	
-	fd = open("map.ber", O_RDONLY);
-	final_map = ft_calloc(1 , sizeof(t_list));
-	if (!final_map)
-		return (NULL);
+	count = 0;
+	fd = open(str, O_RDONLY);
 	line = get_next_line(fd);
-	str = ft_strdup(line);
-	final_map->content = str;
-	free(line);
-	line = get_next_line(fd);
-    while (line != NULL)
-	{	str = ft_strdup(line);
+	while (line != NULL)
+	{
+		count++;
 		free(line);
 		line = get_next_line(fd);
-		map = ft_lstnew(str);
-		ft_lstadd_back(&final_map, map);
-			
+	}
+	close(fd);
+	return (count);
+}
+
+char **generate_map(char *str)
+{
+	int nbr_line;
+	int	fd;
+	char **final_map;
+	char *line;
+	int	i;
+	
+	nbr_line = count_line(str);
+	fd = open(str, O_RDONLY);
+	final_map = ft_calloc(nbr_line + 1, sizeof(char *));
+	if (!final_map)
+		return (NULL);
+	i = 0;
+	while (i <= nbr_line + 1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break;
+		final_map[i] = ft_strdup(line);
+		if (!final_map[i])
+			return (NULL);
+		free(line);
+		i++;
 	}
 	close(fd);
 	return (final_map);
 }
 
-
-void	display_map(t_list **final_map, t_vars **vars)
+void display_map(t_vars **vars)
 {
 	int x;
 	int y;
-	t_list *tmp;
-
-	tmp = *final_map;
+	t_vars *tmp;
+	
 	y = 0;
-	while (tmp)
+	tmp = (*vars);
+	while (tmp->finalmap[y])
 	{	x = 0;
-		while (tmp->content[x])
+		while (tmp->finalmap[y][x])
 		{
-			if (tmp->content[x] == '1')
+			if (tmp->finalmap[y][x] == '1')
 				render_wall(vars, x * 48, y * 48);
-			if (tmp->content[x] == '0')
+			if (tmp->finalmap[y][x] == '0')
 				render_ground(vars, x * 48, y * 48);
-			if (tmp->content[x] == 'P')
+			if (tmp->finalmap[y][x] == 'P')
 				render_player_down(vars, x * 48, y * 48);
-			if (tmp->content[x] == 'C')
+			if (tmp->finalmap[y][x] == 'C')
 				render_item(vars, x * 48, y * 48);
-			if (tmp->content[x] == 'E')
+			if (tmp->finalmap[y][x] == 'E')
 				render_wall(vars, x * 48, y * 48);
 			x++;
 		}
-		tmp = tmp->next;
 		y++;
 	}
 }
