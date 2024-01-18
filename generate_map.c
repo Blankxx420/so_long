@@ -6,7 +6,7 @@
 /*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/01 12:54:26 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/16 14:57:21 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/17 16:28:20 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,28 +61,24 @@ char **generate_map(char *str)
 	return (final_map);
 }
 
-void display_map(t_vars **vars)
+void display_map(t_game **game)
 {
 	int x;
 	int y;
-	t_vars *tmp;
 	
 	y = 0;
-	tmp = (*vars);
-	while (tmp->finalmap[y])
+	while ((*game)->finalmap[y])
 	{	x = 0;
-		while (tmp->finalmap[y][x])
+		while ((*game)->finalmap[y][x])
 		{
-			if (tmp->finalmap[y][x] == '1')
-				render_wall(vars, x * 48, y * 48);
-			if (tmp->finalmap[y][x] == '0')
-				render_ground(vars, x * 48, y * 48);
-			if (tmp->finalmap[y][x] == 'P')
-				render_player_down(vars, x * 48, y * 48);
-			if (tmp->finalmap[y][x] == 'C')
-				render_item(vars, x * 48, y * 48);
-			if (tmp->finalmap[y][x] == 'E')
-				render_wall(vars, x * 48, y * 48);
+			if ((*game)->finalmap[y][x] == '1')
+				render_wall(game, x * 48, y * 48);
+			if ((*game)->finalmap[y][x] == '0')
+				render_ground(game, x * 48, y * 48);
+			if ((*game)->finalmap[y][x] == 'C')
+				render_item(game, x * 48, y * 48);
+			if ((*game)->finalmap[y][x] == 'E')
+				render_exit(game, x * 48, y * 48);
 			x++;
 		}
 		y++;

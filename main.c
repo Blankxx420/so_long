@@ -6,7 +6,7 @@
 /*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 11:20:25 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/16 14:54:35 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/17 14:55:02 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,22 @@
 
 int	main(void)
 {
-	t_vars		*vars;
-
-	vars = malloc(sizeof(t_vars));
-	if (!vars)
+	t_game		*game;
+	
+	game = malloc(sizeof(t_game));
+	game->mlx = mlx_init();
+	if (!game->mlx)
 		return (1);
-	vars->mlx = mlx_init();
-	if (!vars->mlx)
-		return (1);
-	vars->win = mlx_new_window(vars->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "Hello world!");
-	if (!vars->win)
+	game->win = mlx_new_window(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "Hello world!");
+	if (!game->win)
 	{
-		free(vars->mlx);
+		free(game->mlx);
 		return (1);
 	}
-	vars->finalmap = generate_map("map.ber");
-	display_map(&vars);
-	mlx_key_hook(vars->win, key_close_game, vars);
-	mlx_hook(vars->win, 17, 0L, close_game, vars);
-	mlx_loop(vars->mlx);
+	game->finalmap = generate_map("map.ber");
+	display_map(&game);
+	mlx_key_hook(game->win, key_close_game, game);
+	mlx_hook(game->win, 17, 0L, close_game, game);
+	mlx_loop(game->mlx);
 	return (0);
 }
