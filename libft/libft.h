@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:00:32 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/02 17:28:20 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/18 14:22:00 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char			*ft_strrchr(const char *string, int c);
 char			*ft_strdup(const char *s);
 char			*ft_strnstr(const char *str, const char *to_find, size_t len);
 char			*ft_strstr(const char *str, const char *to_find);
+void			ft_free_tab(char **tab);
 
 // Second part
 

@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 09:13:33 by brguicho          #+#    #+#             */
-/*   Updated: 2023/11/09 14:42:13 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:21:42 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	ft_get_size_word(const char *str, char c)
 	return (index);
 }
 
-static void	ft_free_tab(char **tab)
+void	ft_free_tab(char **tab)
 {
 	int	index;
 

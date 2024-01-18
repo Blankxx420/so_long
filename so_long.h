@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/18 13:03:41 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:03:50 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_game {
 	char		**finalmap;
 	int			img_width;
 	int			img_height;
+	int			nbr_item;
 	int			inventory;
 	int			x_player;
 	int			y_player;

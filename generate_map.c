@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 09:10:35 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/18 12:11:39 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/18 14:07:45 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,12 @@ void display_map(t_game **game)
 			if ((*game)->finalmap[y][x] == 'P')
 				player_draw(game, x, y);
 			if ((*game)->finalmap[y][x] == 'C')
+			{
+				(*game)->nbr_item++;
 				mlx_put_image_to_window((*game)->mlx, (*game)->win, (*game)->img_item, x * 48, y * 48);
+			}
 			if ((*game)->finalmap[y][x] == 'E')
-				mlx_put_image_to_window((*game)->mlx, (*game)->win, (*game)->img_exit, x * 48, y *48);
+				mlx_put_image_to_window((*game)->mlx, (*game)->win, (*game)->img_exit, x * 48, y * 48);
 			x++;
 		}
 		y++;
