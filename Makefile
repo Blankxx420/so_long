@@ -5,7 +5,9 @@ CFLAGS = -g -Wall -Werror -Wextra
 SRCS = main.c \
 		exit.c \
 		generate_map.c \
-		render.c
+		render_player.c \
+		init.c \
+		movement.c
 
 OBJS = $(SRCS:.c=.o)
 

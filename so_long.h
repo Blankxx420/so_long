@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/17 16:28:37 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/18 13:03:41 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct	s_game {
 	int			img_width;
 	int			img_height;
 	int			inventory;
+	int			x_player;
+	int			y_player;
 	void 		*img_player;
 	void 		*img_wall;
 	void 		*img_item;
@@ -37,14 +39,18 @@ typedef struct	s_game {
 
 
 
-int 	close_game(t_game *game);
-int		key_close_game(int keycode, t_game *game);
+int 	close_game(t_game **game);
+int		key_close_game(int keycode, t_game **game);
 int		count_line(char *str);
 char	**generate_map(char *str);
 void 	display_map(t_game **game);
-void    render_ground(t_game **game, int x, int y);
-void    render_wall(t_game **game, int x, int y);
-void    render_item(t_game **game, int x, int y);
-void    render_exit(t_game **game, int x, int y);
+void	init_img(t_game **game);
+void	player_draw(t_game **game, int x, int y);
+void 	update_player_img(char key, t_game **game);
+int		key_movement(int keycode, t_game **game);
+void 	move_up(t_game **game);
+void 	move_down(t_game **game);
+void 	move_left(t_game **game);
+void 	move_right(t_game **game);
 
 #endif

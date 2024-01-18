@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   generate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/01 12:54:26 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/17 16:28:20 by blankx           ###   ########.fr       */
+/*   Created: 2024/01/18 09:10:35 by brguicho          #+#    #+#             */
+/*   Updated: 2024/01/18 12:11:39 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,15 @@ void display_map(t_game **game)
 		while ((*game)->finalmap[y][x])
 		{
 			if ((*game)->finalmap[y][x] == '1')
-				render_wall(game, x * 48, y * 48);
+				mlx_put_image_to_window((*game)->mlx, (*game)->win, (*game)->img_wall, x * 48, y * 48);
 			if ((*game)->finalmap[y][x] == '0')
-				render_ground(game, x * 48, y * 48);
+				mlx_put_image_to_window((*game)->mlx, (*game)->win, (*game)->img_ground, x * 48, y * 48);
+			if ((*game)->finalmap[y][x] == 'P')
+				player_draw(game, x, y);
 			if ((*game)->finalmap[y][x] == 'C')
-				render_item(game, x * 48, y * 48);
+				mlx_put_image_to_window((*game)->mlx, (*game)->win, (*game)->img_item, x * 48, y * 48);
 			if ((*game)->finalmap[y][x] == 'E')
-				render_exit(game, x * 48, y * 48);
+				mlx_put_image_to_window((*game)->mlx, (*game)->win, (*game)->img_exit, x * 48, y *48);
 			x++;
 		}
 		y++;
