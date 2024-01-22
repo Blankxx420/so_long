@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/22 11:35:38 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:00:51 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	init_window(t_game **game)
 	return (0);
 }
 
-t_game	*init()
+t_game	*init(char *str)
 {
 	t_game		*game;
 	
@@ -54,7 +54,7 @@ t_game	*init()
 	init_vars(&game);
 	init_window(&game);
 	init_img(&game);
-	game->finalmap = generate_map("map.ber");
+	game->finalmap = generate_map(str);
 	display_map(&game);
 	return (game);
 }
