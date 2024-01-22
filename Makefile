@@ -27,7 +27,7 @@ $(MINILIBX):
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 	
-$(NAME): $(MINILIBX) $(OBJS)
+$(NAME): $(MINILIBX) $(LIBFT) $(OBJS)
 	$(CC) $(OBJS) $(MINILIBX) -o $(NAME) $(CFLAGS) $(INCLUDES) $(LDFLAGS)
   
 %.o: %.c

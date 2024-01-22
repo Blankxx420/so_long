@@ -6,11 +6,9 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:29:29 by brguicho          #+#    #+#             */
-/*   Updated: 2023/11/29 04:58:16 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:46:03 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 int	ft_isalnum(int character)
 {

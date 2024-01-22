@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:00:32 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/18 14:22:00 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:50:14 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ int				ft_atoi(const char *str);
 int				ft_isprint(int character);
 int				ft_tolower(int character);
 int				ft_toupper(int character);
-int				ft_strncmp( const char *first, const char *second, size_t length);
-int				ft_memcmp(const void *pointer1, const void *pointer2, size_t size);
-void			*ft_memchr( const void *memoryblock, int searchedchar, size_t size);
+int				ft_strncmp( const char *first,
+					const char *second, size_t length);
+int				ft_memcmp(const void *pointer1,
+					const void *pointer2, size_t size);
+void			*ft_memchr( const void *memoryblock,
+					int searchedchar, size_t size);
 void			*ft_calloc(size_t elementcount, size_t elementcize);
 unsigned int	ft_strlen(const char *str);
 unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size);
@@ -76,16 +79,17 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst,
+					void *(*f)(void *), void (*del)(void *));
 
 // printf
 
-int	ft_printf(const char *format, ...);
-int	ft_putstrlen(char *str);
-int	ft_putnbr_basel(unsigned long int nbr, char *base);
-int	ft_putcharl(char c);
-int	ft_putnbrl(int n);
-int	ft_putunbrl(unsigned int n);
+int				ft_printf(const char *format, ...);
+int				ft_putstrlen(char *str);
+int				ft_putnbr_basel(unsigned long int nbr, char *base);
+int				ft_putcharl(char c);
+int				ft_putnbrl(int n);
+int				ft_putunbrl(unsigned int n);
 
 // gext_next_line
 
@@ -93,11 +97,11 @@ int	ft_putunbrl(unsigned int n);
 #  define BUFFER_SIZE 64
 # endif
 
-void	ft_read_and_extract(int fd, char **stock);
-int		ft_check_newline(char *stash);
-char	*get_next_line(int fd);
-char	*ft_strjoinf(char *s1, char *s2);
-char	*ft_get_line(char *buffer, char *line);
-char	*ft_clean_stock(char *stock);
+void			ft_read_and_extract(int fd, char **stock);
+int				ft_check_newline(char *stash);
+char			*get_next_line(int fd);
+char			*ft_strjoinf(char *s1, char *s2);
+char			*ft_get_line(char *buffer, char *line);
+char			*ft_clean_stock(char *stock);
 
 #endif

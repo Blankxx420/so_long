@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:42:54 by brguicho          #+#    #+#             */
-/*   Updated: 2023/12/30 01:43:10 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/22 10:47:22 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	ft_check_newline(char *stock)
 	}
 	return (stock[i]);
 }
-
 
 char	*ft_strjoinf(char *s1, char *s2)
 {

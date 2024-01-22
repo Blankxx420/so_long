@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/18 14:03:50 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/22 11:14:11 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_game {
 	int			inventory;
 	int			x_player;
 	int			y_player;
+	int			nbr_move;
 	void 		*img_player;
 	void 		*img_wall;
 	void 		*img_item;
@@ -46,6 +47,9 @@ int		count_line(char *str);
 char	**generate_map(char *str);
 void 	display_map(t_game **game);
 void	init_img(t_game **game);
+void	init_vars(t_game **game);
+t_game	*init();
+void	gameplay(t_game *game);
 void	player_draw(t_game **game, int x, int y);
 void 	update_player_img(char key, t_game **game);
 int		key_movement(int keycode, t_game **game);

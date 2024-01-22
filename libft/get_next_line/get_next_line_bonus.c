@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:29:31 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/11 11:26:03 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/22 10:46:25 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,4 +114,3 @@ char	*ft_clean_stock(char *stock)
 	free(stock);
 	return (new_stock);
 }
-
