@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 09:10:35 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/22 11:34:09 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:25:38 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int	count_line(char *str)
 
 	count = 0;
 	fd = open(str, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_printf("%s\n", "file error");
+		return (0);
+	}
 	line = get_next_line(fd);
 	while (line != NULL)
 	{

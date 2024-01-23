@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 12:06:37 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/22 14:20:25 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/23 12:14:15 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,18 @@ int	map_is_close(char **final_map, int nbrline)
 	return (1);
 }
 
-int	path_is_valid(char **final_map, int x, int y)
+char	**ft_spread(char **final_map, int x, int y)
 {
-	
+	final_map[x][y] = 'P';
+	if (final_map[x + 1][y] != '1' && final_map[x + 1][y] != 'E')
+		ft_spread(final_map, x + 1, y);
+	if (final_map[x - 1][y] != '1' && final_map[x + 1][y] != 'E')
+		ft_spread(final_map, x - 1, y);
+	if (final_map[x][y + 1] != '1' && final_map[x + 1][y] != 'E')
+		ft_spread(final_map, x, y + 1);
+	if (final_map[x][y - 1] != '1' && final_map[x + 1][y] != 'E')
+		ft_spread(final_map, x, y - 1);
+	return (final_map);
 }
+
+

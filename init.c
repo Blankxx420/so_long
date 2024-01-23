@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/22 12:00:51 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/23 12:12:56 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	init_img(t_game **game)
 
 void	init_vars(t_game **game)
 {
+	
 	(*game)->x_player = 0;
 	(*game)->y_player = 0;
 	(*game)->nbr_item = 0;
