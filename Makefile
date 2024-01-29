@@ -7,7 +7,9 @@ SRCS = main.c \
 		generate_map.c \
 		render_player.c \
 		init.c \
-		movement.c
+		movement.c \
+		checker_map.c \
+		checker_map2.c
 
 OBJS = $(SRCS:.c=.o)
 

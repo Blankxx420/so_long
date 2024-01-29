@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:00:32 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/22 10:50:14 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/24 08:33:43 by blankx           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int				ft_memcmp(const void *pointer1,
 void			*ft_memchr( const void *memoryblock,
 					int searchedchar, size_t size);
 void			*ft_calloc(size_t elementcount, size_t elementcize);
-unsigned int	ft_strlen(const char *str);
+int				ft_strlen(const char *str);
 unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size);
 size_t			ft_strlcat(char *dest, const char *src, size_t n);
 void			ft_bzero(void *dest, unsigned int size);

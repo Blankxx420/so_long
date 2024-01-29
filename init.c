@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/23 12:12:56 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/25 11:59:06 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,16 @@ t_game	*init(char *str)
 	if (!game)
 		return (NULL);
 	init_vars(&game);
-	init_window(&game);
-	init_img(&game);
 	game->finalmap = generate_map(str);
-	display_map(&game);
+	game->copy_map = generate_map(str);
 	return (game);
 }
 
 void	gameplay(t_game *game)
 {
+	init_window(&game);
+	init_img(&game);
+	display_map(&game);
 	mlx_hook(game->win, 2, 1L<<0, key_close_game, &game);
 	mlx_key_hook(game->win, key_movement, &game);
 	mlx_hook(game->win, 17, 0L, close_game, &game);
