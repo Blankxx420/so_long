@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:21:30 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/29 07:16:07 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:26:04 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int char_is_valid(char c)
 {
 	if (c != 'P' && c != '1' && c != '0' && c != 'E' && c != 'C')
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 int	is_rectangle(char **final_map, char *map)
 {
@@ -49,14 +49,14 @@ int	check_map_char(char **final_map, int nbr_item)
 	p_count = 0;
 	e_count = 0;
 	if (nbr_item == 0)
-		return (1);
+		return (0);
 	while (final_map[i])
 	{
 		j = 0;
 		while (final_map[i][j])
 		{
-			if (char_is_valid(final_map[i][j]))
-				return (1);
+			if (!char_is_valid(final_map[i][j]))
+				return (0);
 			if (final_map[i][j] == 'P')
 				p_count++;
 			if (final_map[i][j] == 'E')
@@ -66,44 +66,44 @@ int	check_map_char(char **final_map, int nbr_item)
 		i++;
 	}
 	if (p_count != 1 && e_count != 1)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 int	map_is_close(char **final_map, int nbrline)
 {
 	int	i;
 	int	j;
+	int len;
+	
 	i = 0;
-	while (final_map[i])
+	while (final_map[0][i] && final_map[nbrline - 1][i])
 	{
-		j = 0;
-		while (final_map[i][j])
-		{
-			if (final_map[0][j] != '1'
-				|| final_map[nbrline - 1][j] != '1'
-				|| final_map[i][0] != 1
-				|| final_map[i][ft_strlen(final_map[j] - 1)] != 1)
-				return (1);
-			j++;
-		}
+		if (final_map[0][i] != '1' || final_map[nbrline - 1][i] != '1')
+				return (0);
 		i++;
 	}
-	return (0);
+	j = 1;
+	len = ft_strlen(final_map[j]) - 1;
+	while (final_map[j])
+	{
+		if (final_map[j][0] != '1' || final_map[j][len] != '1')
+				return (0);
+		j++;
+	}
+	return (1);
 }
 
 char	**ft_spread(char **final_map, int x, int y)
 {
-	final_map[x][y] = 'P';
-	if (final_map[x + 1][y] != '1' && final_map[x + 1][y] != 'E')
+	final_map[y][x] = 'P';
+	if (final_map[y + 1][x] != '1' && final_map[y + 1][x] != 'E')
 		ft_spread(final_map, x + 1, y);
-	if (final_map[x - 1][y] != '1' && final_map[x + 1][y] != 'E')
+	if (final_map[y - 1][x] != '1' && final_map[y + 1][x] != 'E')
 		ft_spread(final_map, x - 1, y);
-	if (final_map[x][y + 1] != '1' && final_map[x + 1][y] != 'E')
+	if (final_map[y][x + 1] != '1' && final_map[y + 1][x] != 'E')
 		ft_spread(final_map, x, y + 1);
-	if (final_map[x][y - 1] != '1' && final_map[x + 1][y] != 'E')
+	if (final_map[y][x - 1] != '1' && final_map[y + 1][x] != 'E')
 		ft_spread(final_map, x, y - 1);
 	return (final_map);
 }
-
-
