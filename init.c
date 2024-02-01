@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/30 15:43:26 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:46:49 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ t_game	*init(char *str)
 		return (NULL);
 	init_vars(&game);
 	game->finalmap = generate_map(str);
-	printf("%s\n", game->finalmap[0]);
-	printf("%i\n", ft_strlen(game->finalmap[0]));
+	count_item_get_player_pos(game, game->finalmap);
 	game->copy_map = generate_map(str);
 	return (game);
 }

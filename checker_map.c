@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:21:30 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/30 12:26:04 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/01/31 15:48:48 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ int	is_rectangle(char **final_map, char *map)
 
 	nbr_line = count_line(map);
 	nbr_char = ft_strlen(final_map[0]);
-	i = 1;
-	while (ft_strlen(final_map[i]) == nbr_char)
+	i = 0;
+	while (final_map[i])
 	{
 		if (ft_strlen(final_map[i]) != nbr_char)
-			return (1);
+			return (0);
 		i++;
 	}
 	if (nbr_line < nbr_char || nbr_line > nbr_char)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 int	check_map_char(char **final_map, int nbr_item)
@@ -94,16 +94,37 @@ int	map_is_close(char **final_map, int nbrline)
 	return (1);
 }
 
-char	**ft_spread(char **final_map, int x, int y)
+char	**ft_spread(char **final_map, int x, int y, int nbr_line)
 {
-	final_map[y][x] = 'P';
-	if (final_map[y + 1][x] != '1' && final_map[y + 1][x] != 'E')
-		ft_spread(final_map, x + 1, y);
-	if (final_map[y - 1][x] != '1' && final_map[y + 1][x] != 'E')
-		ft_spread(final_map, x - 1, y);
-	if (final_map[y][x + 1] != '1' && final_map[y + 1][x] != 'E')
-		ft_spread(final_map, x, y + 1);
-	if (final_map[y][x - 1] != '1' && final_map[y + 1][x] != 'E')
-		ft_spread(final_map, x, y - 1);
-	return (final_map);
+	int nbr_char;
+	
+	nbr_char = ft_strlen(final_map[0]) - 1;
+    if (final_map[y + 1][x] != '1' 
+		&& final_map[y + 1][x] != 'E'
+		&& final_map[y + 1][x] != 'P'
+		&& y + 1 < nbr_line)
+    {
+        final_map[y + 1][x] = 'P';
+        ft_spread(final_map, x, y + 1, nbr_line);
+    }
+    if (final_map[y - 1][x] != '1' && final_map[y - 1][x] != 'E'
+		&& final_map[y - 1][x] != 'P'
+		&& y - 1 > 0)
+    {
+        final_map[y - 1][x] = 'P';
+        ft_spread(final_map, x, y - 1, nbr_line);
+    }
+    if (final_map[y][x + 1] != '1' && final_map[y][x + 1] != 'E'
+		&& x + 1 < nbr_char && final_map[y][x + 1] != 'P')
+    {
+        final_map[y][x + 1] = 'P';
+        ft_spread(final_map, x + 1, y, nbr_line);
+    }
+    if (final_map[y][x - 1] != '1' && final_map[y][x - 1] != 'E'
+		&& x - 1 > 0 && final_map[y][x - 1] != 'P')
+    {
+        final_map[y][x - 1] = 'P';
+        ft_spread(final_map, x - 1,  y, nbr_line);
+    }
+    return (final_map);
 }

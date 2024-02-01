@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/24 08:32:58 by blankx           ###   ########.fr       */
+/*   Updated: 2024/01/31 13:58:11 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ int 	char_is_valid(char c);
 int		is_rectangle(char **final_map, char *map);
 int		check_map_char(char **final_map, int nbr_item);
 int		map_is_close(char **final_map, int nbrline);
-char	**ft_spread(char **final_map, int x, int y);
+char	**ft_spread(char **final_map, int x, int y, int nbr_line);
 int		check_map(t_game **game, char *argv);
-
+void    count_item_get_player_pos(t_game *game, char **finalmap);
+void 	set_player_position(t_game *game, int x, int y);
 #endif

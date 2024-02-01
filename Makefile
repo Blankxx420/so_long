@@ -9,7 +9,8 @@ SRCS = main.c \
 		init.c \
 		movement.c \
 		checker_map.c \
-		checker_map2.c
+		checker_map2.c \
+		utils.c
 
 OBJS = $(SRCS:.c=.o)
 
