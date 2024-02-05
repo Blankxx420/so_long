@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 11:20:25 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/05 07:56:43 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/05 10:31:20 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	{
 		game = init(argv[1]);
 		if (check_map(&game, argv[1]))
-			gameplay(game);
+			gameplay(game, argv[1]);
 	}
 	else
 		ft_printf("%s\n", "wrong number of argument expected 1");

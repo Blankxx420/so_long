@@ -6,29 +6,29 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:04:55 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/02 11:09:30 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/05 10:35:49 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
 int	check_argv(char *str)
 {
-	int len;
+	int	len;
+
 	len = ft_strlen(str) - 1;
-	if (str[len - 3] != '.' 
+	if (str[len - 3] != '.'
 		&& str[len - 2] != 'b'
 		&& str[len - 1] != 'e'
 		&& str[len] != 'r')
 		return (0);
 	return (1);
-	
 }
+
 int	is_end(char **final_map)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	while (final_map[i])
@@ -45,28 +45,54 @@ int	is_end(char **final_map)
 	return (1);
 }
 
-
 int	check_map(t_game **game, char *argv)
 {
-	int i = 0;
-	char **mapfloded;
 	if (map_is_close((*game)->copy_map, count_line(argv))
 		&& is_rectangle((*game)->copy_map, argv)
 		&& check_map_char((*game)->copy_map, (*game)->nbr_item))
 	{
-		mapfloded = ft_spread((*game)->copy_map,(*game)->x_player, (*game)->y_player, count_line(argv));
-		while (mapfloded[i])
-		{
-			printf("%s\n", mapfloded[i]);
-			i++;
-		}
+		ft_spread((*game)->copy_map, (*game)->x_player,
+			(*game)->y_player, count_line(argv));
 		if (is_end((*game)->copy_map))
+		{
+			ft_free_tab((*game)->copy_map);
 			return (1);
+		}
 		else
 		{
+			ft_free_tab((*game)->copy_map);
 			ft_printf("%s\n", "map error");
 			return (0);
 		}
 	}
 	return (0);
+}
+
+int	check_map_char2(char **final_map)
+{
+	int	i;
+	int	j;
+	int	p_count;
+	int	e_count;
+
+	i = -1;
+	p_count = 0;
+	e_count = 0;
+	while (final_map[++i])
+	{
+		j = 0;
+		while (final_map[i][j])
+		{
+			if (!char_is_valid(final_map[i][j]))
+				return (0);
+			if (final_map[i][j] == 'P')
+				p_count++;
+			if (final_map[i][j] == 'E')
+				e_count++;
+			j++;
+		}
+	}
+	if (p_count != 1 && e_count != 1)
+		return (0);
+	return (1);
 }
