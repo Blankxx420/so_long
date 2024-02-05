@@ -6,12 +6,25 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:04:55 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/31 16:17:06 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:09:30 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+
+int	check_argv(char *str)
+{
+	int len;
+	len = ft_strlen(str) - 1;
+	if (str[len - 3] != '.' 
+		&& str[len - 2] != 'b'
+		&& str[len - 1] != 'e'
+		&& str[len] != 'r')
+		return (0);
+	return (1);
+	
+}
 int	is_end(char **final_map)
 {
 	int	i;

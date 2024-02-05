@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/31 13:58:11 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/02 11:12:10 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void 	move_left(t_game **game);
 void 	move_right(t_game **game);
 
 //checking function for maps
+int		check_argv(char *str);
 int		is_end(char **final_map);
 int 	char_is_valid(char c);
 int		is_rectangle(char **final_map, char *map);
