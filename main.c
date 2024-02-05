@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 11:20:25 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/02 11:13:52 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/05 07:56:43 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	main(int argc, char **argv)
 {
 	t_game		*game;
-	
+
 	if (argc == 2 && check_argv(argv[1]))
 	{
 		game = init(argv[1]);
-		if(check_map(&game, argv[1]))
+		if (check_map(&game, argv[1]))
 			gameplay(game);
 	}
 	else

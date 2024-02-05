@@ -6,18 +6,19 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:21:30 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/31 15:48:48 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/05 07:58:47 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int char_is_valid(char c)
+int	char_is_valid(char c)
 {
 	if (c != 'P' && c != '1' && c != '0' && c != 'E' && c != 'C')
 		return (0);
 	return (1);
 }
+
 int	is_rectangle(char **final_map, char *map)
 {
 	int	nbr_line;
@@ -75,7 +76,7 @@ int	map_is_close(char **final_map, int nbrline)
 	int	i;
 	int	j;
 	int len;
-	
+
 	i = 0;
 	while (final_map[0][i] && final_map[nbrline - 1][i])
 	{
