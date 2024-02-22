@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/05 10:36:22 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/22 11:43:32 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,9 @@ t_game	*init(char *str)
 		return (NULL);
 	init_vars(&game);
 	game->finalmap = generate_map(str);
-	count_item_get_player_pos(game, game->finalmap);
+	count_item_get_player_pos(&game, game->finalmap);
 	game->copy_map = generate_map(str);
+	game->copy_map2 = generate_map(str);
 	return (game);
 }
 

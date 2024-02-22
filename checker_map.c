@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:21:30 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/05 09:46:18 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/22 12:39:07 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	is_rectangle(char **final_map, char *map)
 	int	nbr_char;
 	int	i;
 
+	if (!final_map[0])
+		return (0);
 	nbr_line = count_line(map);
 	nbr_char = ft_strlen(final_map[0]);
 	i = 0;

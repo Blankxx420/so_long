@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/05 10:34:22 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/22 11:43:59 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_game {
 	void		*win;
 	char		**finalmap;
 	char		**copy_map;
+	char		**copy_map2;
 	int			heigth;
 	int			width;
 	int			img_width;
@@ -67,13 +68,15 @@ void	move_right(t_game **game);
 //checking function for maps
 int		check_argv(char *str);
 int		is_end(char **final_map);
+int		is_end2(char **final_map);
 int		char_is_valid(char c);
 int		is_rectangle(char **final_map, char *map);
 int		check_map_char(char **final_map, int nbr_item);
 int		map_is_close(char **final_map, int nbrline);
 char	**ft_spread(char **final_map, int x, int y, int nbr_line);
+char	**ft_spread2(char **final_map, int x, int y, int nbr_line);
 int		check_map(t_game **game, char *argv);
-void	count_item_get_player_pos(t_game *game, char **finalmap);
-void	set_player_position(t_game *game, int x, int y);
+void	count_item_get_player_pos(t_game **game, char **finalmap);
+void	set_player_position(t_game **game, int x, int y);
 int		check_map_char2(char **final_map);
 #endif

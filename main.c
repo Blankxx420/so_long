@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 11:20:25 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/05 10:31:20 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/22 11:24:49 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,18 @@ int	main(int argc, char **argv)
 	{
 		game = init(argv[1]);
 		if (check_map(&game, argv[1]))
+		{
+			ft_free_tab(game->copy_map);
+			ft_free_tab(game->copy_map2);
 			gameplay(game, argv[1]);
+		}
+		else
+		{
+			ft_free_tab(game->copy_map);
+			ft_free_tab(game->copy_map2);
+			ft_free_tab(game->finalmap);
+			free(game);
+		}
 	}
 	else
 		ft_printf("%s\n", "wrong number of argument expected 1");

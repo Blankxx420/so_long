@@ -6,11 +6,12 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:04:55 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/05 10:35:49 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/22 12:36:05 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
 int	check_argv(char *str)
 {
@@ -36,7 +37,7 @@ int	is_end(char **final_map)
 		j = 0;
 		while (final_map[i][j])
 		{
-			if (final_map[i][j] == 'C' || final_map[i][j] == '0')
+			if (final_map[i][j] == 'C')
 				return (0);
 			j++;
 		}
@@ -47,20 +48,21 @@ int	is_end(char **final_map)
 
 int	check_map(t_game **game, char *argv)
 {
-	if (map_is_close((*game)->copy_map, count_line(argv))
-		&& is_rectangle((*game)->copy_map, argv)
+	if(is_rectangle((*game)->copy_map, argv)
+		&& map_is_close((*game)->copy_map, count_line(argv))
 		&& check_map_char((*game)->copy_map, (*game)->nbr_item))
 	{
 		ft_spread((*game)->copy_map, (*game)->x_player,
 			(*game)->y_player, count_line(argv));
 		if (is_end((*game)->copy_map))
 		{
-			ft_free_tab((*game)->copy_map);
-			return (1);
+			ft_spread2((*game)->copy_map2, (*game)->x_player,
+			(*game)->y_player, count_line(argv));
+			if (is_end2((*game)->copy_map2))
+				return (1);
 		}
 		else
 		{
-			ft_free_tab((*game)->copy_map);
 			ft_printf("%s\n", "map error");
 			return (0);
 		}
@@ -92,7 +94,7 @@ int	check_map_char2(char **final_map)
 			j++;
 		}
 	}
-	if (p_count != 1 && e_count != 1)
+	if (p_count != 1 || e_count != 1)
 		return (0);
 	return (1);
 }
