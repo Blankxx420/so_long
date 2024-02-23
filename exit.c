@@ -6,13 +6,13 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:03:34 by blankx            #+#    #+#             */
-/*   Updated: 2024/01/18 14:23:24 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/22 13:27:50 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int close_game(t_game **game)
+int	close_game(t_game **game)
 {
 	mlx_destroy_image((*game)->mlx, (*game)->img_player);
 	mlx_destroy_image((*game)->mlx, (*game)->img_wall);

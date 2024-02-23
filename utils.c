@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:35:28 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/22 11:43:06 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/23 10:34:02 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,26 @@ void	count_item_get_player_pos(t_game **game, char **finalmap)
 		}
 		i++;
 	}
+}
+
+char	*get_line_join(int fd, char *tmp)
+{
+	char	*line;
+
+	line = get_next_line(fd);
+	if (!line || line[0] == '\n')
+	{
+		free(tmp);
+		free(line);
+		return (NULL);
+	}
+	tmp = ft_strjoinf(tmp, line);
+	if (!tmp)
+	{
+		free(tmp);
+		free(line);
+		return (NULL);
+	}
+	free(line);
+	return (tmp);
 }

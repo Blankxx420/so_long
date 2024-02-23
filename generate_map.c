@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 09:10:35 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/22 12:41:43 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/23 10:34:21 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ int	count_line(char *str)
 		return (0);
 	}
 	line = get_next_line(fd);
+	if (!line || line[0] == '\n')
+	{
+		free(line);
+		return (0);
+	}
 	while (line != NULL)
 	{
 		count++;
@@ -40,7 +45,6 @@ int	count_line(char *str)
 static char	**create_tab(int fd, int nbr_line)
 {
 	int		i;
-	char	*line;
 	char	**final_map;
 	char	*tmp;
 
@@ -48,18 +52,21 @@ static char	**create_tab(int fd, int nbr_line)
 	tmp = ft_strdup("");
 	while (i < nbr_line)
 	{
-		line = get_next_line(fd);
-		if (!line || line[0] == '\n')
+		tmp = get_line_join(fd, tmp);
+		if (!tmp)
 		{
 			free(tmp);
-			free(line);
-			break ;
+			return (NULL);
 		}
-		tmp = ft_strjoinf(tmp, line);
-		free(line);
 		i++;
 	}
 	final_map = ft_split(tmp, '\n');
+	if (!final_map)
+	{
+		free(final_map);
+		free(tmp);
+		return (NULL);
+	}
 	free(tmp);
 	return (final_map);
 }

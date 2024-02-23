@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:04:55 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/22 12:36:05 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/22 13:27:11 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	is_end(char **final_map)
 
 int	check_map(t_game **game, char *argv)
 {
-	if(is_rectangle((*game)->copy_map, argv)
+	if (is_rectangle((*game)->copy_map, argv)
 		&& map_is_close((*game)->copy_map, count_line(argv))
 		&& check_map_char((*game)->copy_map, (*game)->nbr_item))
 	{
@@ -57,7 +57,7 @@ int	check_map(t_game **game, char *argv)
 		if (is_end((*game)->copy_map))
 		{
 			ft_spread2((*game)->copy_map2, (*game)->x_player,
-			(*game)->y_player, count_line(argv));
+				(*game)->y_player, count_line(argv));
 			if (is_end2((*game)->copy_map2))
 				return (1);
 		}

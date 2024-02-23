@@ -38,9 +38,12 @@ $(NAME): $(MINILIBX) $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
 clean :
+	make clean -C $(LIBFT_DIR)
+	make clean -C $(MINILIBX_DIR)
 	rm -rf $(OBJS)
 
 fclean : clean
+	make fclean -C $(LIBFT_DIR)
 	rm -rf $(NAME)
 
 re : fclean all
