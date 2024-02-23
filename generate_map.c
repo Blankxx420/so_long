@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 09:10:35 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/23 10:34:21 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:14:26 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,19 +91,19 @@ static void	check_map_element(t_game **game, int y, int x)
 		mlx_put_image_to_window((*game)->mlx,
 			(*game)->win, (*game)->img_wall, x * 48, y * 48);
 	}
-	if ((*game)->finalmap[y][x] == '0')
+	else if ((*game)->finalmap[y][x] == '0')
 	{
 		mlx_put_image_to_window((*game)->mlx,
 			(*game)->win, (*game)->img_ground, x * 48, y * 48);
 	}
-	if ((*game)->finalmap[y][x] == 'P')
+	else if ((*game)->finalmap[y][x] == 'P')
 		player_draw(game, x, y);
-	if ((*game)->finalmap[y][x] == 'C')
+	else if ((*game)->finalmap[y][x] == 'C')
 	{
 		mlx_put_image_to_window((*game)->mlx,
 			(*game)->win, (*game)->img_item, x * 48, y * 48);
 	}
-	if ((*game)->finalmap[y][x] == 'E')
+	else if ((*game)->finalmap[y][x] == 'E')
 	{
 		mlx_put_image_to_window((*game)->mlx,
 			(*game)->win, (*game)->img_exit, x * 48, y * 48);

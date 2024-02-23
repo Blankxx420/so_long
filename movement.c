@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:24:48 by blankx            #+#    #+#             */
-/*   Updated: 2024/01/22 09:29:03 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:00:50 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,13 @@
 int	key_movement(int keycode, t_game **game)
 {
 	if (keycode == XK_w)
-	{
 		move_up(game);
-		(*game)->nbr_move++;
-	}
 	if (keycode == XK_s)
-	{
 		move_down(game);
-		(*game)->nbr_move++;
-	}
 	if (keycode == XK_d)
-	{
 		move_right(game);
-		(*game)->nbr_move++;
-	}
 	if (keycode == XK_a)
-	{
 		move_left(game);
-		(*game)->nbr_move++;
-	}
-	printf("move :%i\n", (*game)->nbr_move);
 	return (0);
 }
 
@@ -60,7 +47,11 @@ void	move_up(t_game **game)
 		(*game)->inventory++;
 	}
 	if ((*game)->finalmap[y - 1][x] == '0')
+	{
 		player_draw(game, x, y - 1);
+		(*game)->nbr_move++;
+		ft_printf("move :%i\n", (*game)->nbr_move);
+	}
 }
 
 void	move_down(t_game **game)
@@ -85,7 +76,11 @@ void	move_down(t_game **game)
 		(*game)->inventory++;
 	}
 	if ((*game)->finalmap[y + 1][x] == '0')
+	{
 		player_draw(game, x, y + 1);
+		(*game)->nbr_move++;
+		ft_printf("move :%i\n", (*game)->nbr_move);
+	}
 }
 
 void	move_right(t_game **game)
@@ -110,7 +105,11 @@ void	move_right(t_game **game)
 		(*game)->inventory++;
 	}
 	if ((*game)->finalmap[y][x + 1] == '0')
+	{
 		player_draw(game, x + 1, y);
+		(*game)->nbr_move++;
+		ft_printf("move :%i\n", (*game)->nbr_move);
+	}
 }
 
 void	move_left(t_game **game)
@@ -135,5 +134,9 @@ void	move_left(t_game **game)
 		(*game)->inventory++;
 	}
 	if ((*game)->finalmap[y][x - 1] == '0')
+	{
 		player_draw(game, x - 1, y);
+		(*game)->nbr_move++;
+		ft_printf("move :%i\n", (*game)->nbr_move);
+	}
 }

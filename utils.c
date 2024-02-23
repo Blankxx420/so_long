@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:35:28 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/23 10:34:02 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:10:33 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	count_item_get_player_pos(t_game **game, char **finalmap)
 			if (finalmap[i][j] == 'C')
 				(*game)->nbr_item++;
 			if (finalmap[i][j] == 'P')
-				set_player_position(game, i, j);
+				set_player_position(game, j, i);
 			j++;
 		}
 		i++;

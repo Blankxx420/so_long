@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:21:30 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/22 12:39:07 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/23 12:05:21 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ char	**ft_spread(char **final_map, int x, int y, int nbr_line)
 	int	nbr_char;
 
 	nbr_char = ft_strlen(final_map[0]) - 1;
+	ft_printf("i'm spreading on [%d] [%d]\n", y, x);
 	final_map[y][x] = 'P';
 	if (final_map[y + 1][x] != '1'
 		&& final_map[y + 1][x] != 'E'

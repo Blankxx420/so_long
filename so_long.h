@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/23 10:40:25 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/02/23 11:58:49 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,7 @@ void	count_item_get_player_pos(t_game **game, char **finalmap);
 void	set_player_position(t_game **game, int x, int y);
 int		check_map_char2(char **final_map);
 char	*get_line_join(int fd, char *tmp);
+
+void	print_map(char **map);
+
 #endif
