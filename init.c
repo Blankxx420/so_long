@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/23 12:48:29 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:16:47 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,24 @@ void	init_img(t_game **game)
 {
 	(*game)->img_player = mlx_xpm_file_to_image((*game)->mlx,
 			"asset/player_down.xpm", &(*game)->img_width, &(*game)->img_height);
+	if (!(*game)->img_player)
+		return ;
 	(*game)->img_wall = mlx_xpm_file_to_image((*game)->mlx,
 			"asset/wall.xpm", &(*game)->img_width, &(*game)->img_height);
+	if (!(*game)->img_wall)
+		return ;
 	(*game)->img_item = mlx_xpm_file_to_image((*game)->mlx,
 			"asset/item.xpm", &(*game)->img_width, &(*game)->img_height);
+	if (!(*game)->img_item)
+		return ;
 	(*game)->img_ground = mlx_xpm_file_to_image((*game)->mlx,
 			"asset/ground.xpm", &(*game)->img_width, &(*game)->img_height);
+	if (!(*game)->img_ground)
+		return ;
 	(*game)->img_exit = mlx_xpm_file_to_image((*game)->mlx,
 			"asset/exit.xpm", &(*game)->img_width, &(*game)->img_height);
+	if (!(*game)->img_exit)
+		return ;
 }
 
 void	init_vars(t_game **game)
@@ -59,9 +69,15 @@ t_game	*init(char *str)
 		return (NULL);
 	init_vars(&game);
 	game->finalmap = generate_map(str);
+	if (!game->finalmap)
+		return (NULL);
 	count_item_get_player_pos(&game, game->finalmap);
 	game->copy_map = generate_map(str);
+	if (!game->copy_map)
+		return (NULL);
 	game->copy_map2 = generate_map(str);
+	if (!game->copy_map2)
+		return (NULL);
 	return (game);
 }
 
