@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/23 11:58:49 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/03/21 10:37:41 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "mlx_linux/mlx.h"
 # include "mlx_linux/mlx_int.h"
 # include <stdlib.h>
-# include <stdio.h>
 # include "libft/libft.h"
 
 typedef struct s_game {
