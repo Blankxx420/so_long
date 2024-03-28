@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/03/21 10:37:41 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/03/28 14:43:31 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ typedef struct s_game {
 // initialization function 
 t_game	*init(char *str);
 void	init_vars(t_game **game);
-void	init_img(t_game **game);
+int		init_img(t_game **game);
 char	**generate_map(char *str);
 void	display_map(t_game **game);
 int		count_line(char *str);
-void	gameplay(t_game *game, char *str);
+int		gameplay(t_game *game, char *str);
 
 // hook function
 int		close_game(t_game **game);
@@ -81,5 +81,6 @@ int		check_map_char2(char **final_map);
 char	*get_line_join(int fd, char *tmp);
 
 void	print_map(char **map);
+void	ft_free_all_tab(t_game *game);
 
 #endif

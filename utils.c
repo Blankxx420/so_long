@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:35:28 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/23 12:10:33 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/03/28 14:58:23 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,11 @@ char	*get_line_join(int fd, char *tmp)
 	}
 	free(line);
 	return (tmp);
+}
+
+void	ft_free_all_tab(t_game *game)
+{
+	ft_free_tab(game->copy_map);
+	ft_free_tab(game->copy_map2);
+	ft_free_tab(game->finalmap);
 }

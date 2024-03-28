@@ -6,34 +6,35 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/03/05 14:16:47 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/03/21 10:48:24 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	init_img(t_game **game)
+int	init_img(t_game **game)
 {
 	(*game)->img_player = mlx_xpm_file_to_image((*game)->mlx,
 			"asset/player_down.xpm", &(*game)->img_width, &(*game)->img_height);
 	if (!(*game)->img_player)
-		return ;
+		return (1);
 	(*game)->img_wall = mlx_xpm_file_to_image((*game)->mlx,
 			"asset/wall.xpm", &(*game)->img_width, &(*game)->img_height);
 	if (!(*game)->img_wall)
-		return ;
+		return (1);
 	(*game)->img_item = mlx_xpm_file_to_image((*game)->mlx,
 			"asset/item.xpm", &(*game)->img_width, &(*game)->img_height);
 	if (!(*game)->img_item)
-		return ;
+		return (1);
 	(*game)->img_ground = mlx_xpm_file_to_image((*game)->mlx,
 			"asset/ground.xpm", &(*game)->img_width, &(*game)->img_height);
 	if (!(*game)->img_ground)
-		return ;
+		return (1);
 	(*game)->img_exit = mlx_xpm_file_to_image((*game)->mlx,
 			"asset/exit.xpm", &(*game)->img_width, &(*game)->img_height);
 	if (!(*game)->img_exit)
-		return ;
+		return (1);
+	return (0);
 }
 
 void	init_vars(t_game **game)
@@ -81,15 +82,18 @@ t_game	*init(char *str)
 	return (game);
 }
 
-void	gameplay(t_game *game, char *str)
+int	gameplay(t_game *game, char *str)
 {
 	game->heigth = count_line(str);
 	game->width = ft_strlen(game->finalmap[0]);
-	init_window(&game);
-	init_img(&game);
+	if (init_window(&game) == 1)
+		return (1);
+	if (init_img(&game) == 1)
+		return (1);
 	display_map(&game);
 	mlx_hook(game->win, 2, 1L << 0, key_close_game, &game);
 	mlx_key_hook(game->win, key_movement, &game);
 	mlx_hook(game->win, 17, 0L, close_game, &game);
 	mlx_loop(game->mlx);
+	return (0);
 }

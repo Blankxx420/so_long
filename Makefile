@@ -1,4 +1,4 @@
-NAME = game
+NAME = so_long
 CC = gcc
 CFLAGS = -g -Wall -Werror -Wextra
 
