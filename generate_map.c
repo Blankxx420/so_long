@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 09:10:35 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/23 13:14:26 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/09 11:22:17 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	count_line(char *str)
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_printf("%s\n", "file error");
 		return (0);
 	}
 	line = get_next_line(fd);
@@ -79,6 +78,8 @@ char	**generate_map(char *str)
 
 	nbr_line = count_line(str);
 	fd = open(str, O_RDONLY);
+	if (fd < 0)
+		return (0);
 	final_map = create_tab(fd, nbr_line);
 	close(fd);
 	return (final_map);

@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:04:55 by brguicho          #+#    #+#             */
-/*   Updated: 2024/02/23 13:15:19 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/05 22:14:30 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int	check_map(t_game **game, char *argv)
 		}
 		else
 		{
-			ft_printf("%s\n", "map error");
 			return (0);
 		}
 	}

@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 11:20:25 by brguicho          #+#    #+#             */
-/*   Updated: 2024/04/09 11:42:17 by brguicho         ###   ########.fr       */
+/*   Created: 2024/04/05 21:51:36 by brguicho          #+#    #+#             */
+/*   Updated: 2024/04/05 22:03:51 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../libft.h"
 
-int	main(int argc, char **argv)
+void	free_stock(char *stock[1024])
 {
-	t_game		*game;
+	int	i;
 
-	game = NULL;
-	if (argc == 2 && check_argv(argv[1]))
+	i = -1;
+	while (++i < 1024)
+		free(stock[i]);
+}
+
+int	check_line_and_stock(char *line, char **stock, int fd)
+{
+	if (line && !*line && ft_strlen(stock[fd]) == 0)
 	{
-		so_long(game, argv);
+		free(line);
+		free(stock[fd]);
+		stock[fd] = NULL;
+		line = NULL;
+		return (1);
 	}
-	else
-		write(2, "Error\n", 6);
 	return (0);
 }

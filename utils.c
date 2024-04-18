@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:35:28 by brguicho          #+#    #+#             */
-/*   Updated: 2024/03/28 14:58:23 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/09 11:44:55 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*get_line_join(int fd, char *tmp)
 	char	*line;
 
 	line = get_next_line(fd);
-	if (!line || line[0] == '\n')
+	if (line[0] == '\n' || !tmp)
 	{
 		free(tmp);
 		free(line);
@@ -66,4 +66,27 @@ void	ft_free_all_tab(t_game *game)
 	ft_free_tab(game->copy_map);
 	ft_free_tab(game->copy_map2);
 	ft_free_tab(game->finalmap);
+	free(game);
+}
+
+void	so_long(t_game *game, char **argv)
+{
+	game = init(argv[1]);
+	if (!game)
+	{
+		get_next_line(-1);
+		write(2, "Error\n", 6);
+		return ;
+	}
+	if (check_map(&game, argv[1]) && gameplay(game, argv[1]) != 1)
+	{
+		if (gameplay(game, argv[1]) != 1)
+			ft_free_all_tab(game);
+	}
+	else
+	{
+		write(2, "Error\n", 6);
+		ft_free_all_tab(game);
+	}
+	get_next_line(-1);
 }

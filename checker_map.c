@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:21:30 by brguicho          #+#    #+#             */
-/*   Updated: 2024/03/21 10:38:40 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/15 14:40:38 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int	map_is_close(char **final_map, int nbrline)
 		i++;
 	}
 	j = 1;
+	if (final_map[j] == NULL)
+		return (0);
 	len = ft_strlen(final_map[j]) - 1;
 	while (final_map[j])
 	{

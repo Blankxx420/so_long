@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blankx <blankx@student.42.fr>              +#+  +:+       +#+        */
+/*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:00:32 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/24 08:33:43 by blankx           ###   ########.fr       */
+/*   Updated: 2024/04/05 22:04:07 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <stdarg.h>
+# include <stdio.h>
 
 // First Part
 
@@ -103,5 +104,7 @@ char			*get_next_line(int fd);
 char			*ft_strjoinf(char *s1, char *s2);
 char			*ft_get_line(char *buffer, char *line);
 char			*ft_clean_stock(char *stock);
+void			free_stock(char *stock[1024]);
+int				check_line_and_stock(char *line, char **stock, int fd);
 
 #endif

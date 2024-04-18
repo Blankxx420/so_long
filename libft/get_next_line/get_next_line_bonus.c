@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:29:31 by brguicho          #+#    #+#             */
-/*   Updated: 2024/01/22 10:46:25 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/05 22:03:06 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,23 @@ char	*get_next_line(int fd)
 	static char	*stock[1024];
 	char		*line;
 
+	if (fd == -1)
+	{
+		free_stock(stock);
+		return (NULL);
+	}
 	if (!stock[fd])
 		stock[fd] = ft_calloc(1, 1);
 	if (!stock[fd])
 		return (NULL);
-	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	line = NULL;
 	ft_read_and_extract(fd, &stock[fd]);
 	line = ft_get_line(stock[fd], line);
 	stock[fd] = ft_clean_stock(stock[fd]);
-	if (line && !*line && ft_strlen(stock[fd]) == 0)
+	if (check_line_and_stock(line, stock, fd))
 	{
-		free(line);
-		free(stock[fd]);
-		stock[fd] = NULL;
-		line = NULL;
 		return (NULL);
 	}
 	return (line);

@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/03/28 14:43:31 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/15 10:17:20 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_game {
 
 // initialization function 
 t_game	*init(char *str);
+void	so_long(t_game *game, char **argv);
 void	init_vars(t_game **game);
 int		init_img(t_game **game);
 char	**generate_map(char *str);
