@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/04/15 10:17:20 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/18 22:28:19 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-typedef struct s_game {
+typedef struct s_game
+{
 	void		*mlx;
 	void		*win;
 	char		**finalmap;
@@ -35,7 +36,10 @@ typedef struct s_game {
 	int			x_player;
 	int			y_player;
 	int			nbr_move;
-	void		*img_player;
+	void		*img_player_down;
+	void		*img_player_up;
+	void		*img_player_left;
+	void		*img_player_right;
 	void		*img_wall;
 	void		*img_item;
 	void		*img_ground;
@@ -46,7 +50,9 @@ typedef struct s_game {
 t_game	*init(char *str);
 void	so_long(t_game *game, char **argv);
 void	init_vars(t_game **game);
-int		init_img(t_game **game);
+int		init_img_player(t_game **game);
+int		init_img_tiles(t_game **game);
+int		init_img(t_game *game);
 char	**generate_map(char *str);
 void	display_map(t_game **game);
 int		count_line(char *str);
@@ -58,7 +64,7 @@ int		key_movement(int keycode, t_game **game);
 int		key_close_game(int keycode, t_game **game);
 
 //handle player movement function
-void	player_draw(t_game **game, int x, int y);
+void	player_draw(t_game **game, int x, int y, void *img_player);
 void	update_player_img(char key, t_game **game);
 void	move_up(t_game **game);
 void	move_down(t_game **game);

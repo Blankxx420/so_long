@@ -6,34 +6,23 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/04/18 16:42:22 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/18 22:35:58 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	init_img(t_game **game)
+int	init_img(t_game *game)
 {
-	(*game)->img_player = mlx_xpm_file_to_image((*game)->mlx,
-			"asset/player_down.xpm", &(*game)->img_width, &(*game)->img_height);
-	if (!(*game)->img_player)
+	if (init_img_player(&game) == 1)
+	{
+		mlx_destroy_image(game->mlx, game->img_player_down);
 		return (1);
-	(*game)->img_wall = mlx_xpm_file_to_image((*game)->mlx,
-			"asset/wall.xpm", &(*game)->img_width, &(*game)->img_height);
-	if (!(*game)->img_wall)
+	}
+	if (init_img_tiles(&game) == 1)
+	{
 		return (1);
-	(*game)->img_item = mlx_xpm_file_to_image((*game)->mlx,
-			"asset/item.xpm", &(*game)->img_width, &(*game)->img_height);
-	if (!(*game)->img_item)
-		return (1);
-	(*game)->img_ground = mlx_xpm_file_to_image((*game)->mlx,
-			"asset/ground.xpm", &(*game)->img_width, &(*game)->img_height);
-	if (!(*game)->img_ground)
-		return (1);
-	(*game)->img_exit = mlx_xpm_file_to_image((*game)->mlx,
-			"asset/exit.xpm", &(*game)->img_width, &(*game)->img_height);
-	if (!(*game)->img_exit)
-		return (1);
+	}
 	return (0);
 }
 
@@ -96,11 +85,11 @@ int	gameplay(t_game *game, char *str)
 		free(game->mlx);
 		return (1);
 	}
-	if (init_img(&game) == 1)
+	if (init_img(game) == 1)
 	{
 		mlx_destroy_window(game->mlx, game->win);
 		mlx_destroy_display(game->mlx);
-		free(game->mlx); 
+		free(game->mlx);
 		return (1);
 	}
 	display_map(&game);

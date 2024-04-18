@@ -6,7 +6,7 @@
 #    By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 09:01:23 by brguicho          #+#    #+#              #
-#    Updated: 2024/04/15 11:29:47 by brguicho         ###   ########.fr        #
+#    Updated: 2024/04/18 19:59:41 by brguicho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = main.c \
 		generate_map.c \
 		render_player.c \
 		init.c \
+		init2.c \
 		movement.c \
 		checker_map.c \
 		checker_map2.c \

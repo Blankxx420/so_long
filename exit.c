@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:03:34 by blankx            #+#    #+#             */
-/*   Updated: 2024/04/09 11:11:41 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/18 20:00:58 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int	close_game(t_game **game)
 {
-	mlx_destroy_image((*game)->mlx, (*game)->img_player);
+	mlx_destroy_image((*game)->mlx, (*game)->img_player_down);
+	mlx_destroy_image((*game)->mlx, (*game)->img_player_up);
+	mlx_destroy_image((*game)->mlx, (*game)->img_player_left);
+	mlx_destroy_image((*game)->mlx, (*game)->img_player_right);
 	mlx_destroy_image((*game)->mlx, (*game)->img_wall);
 	mlx_destroy_image((*game)->mlx, (*game)->img_ground);
 	mlx_destroy_image((*game)->mlx, (*game)->img_item);
@@ -31,7 +34,10 @@ int	key_close_game(int keycode, t_game **game)
 {
 	if (keycode == XK_Escape)
 	{
-		mlx_destroy_image((*game)->mlx, (*game)->img_player);
+		mlx_destroy_image((*game)->mlx, (*game)->img_player_down);
+		mlx_destroy_image((*game)->mlx, (*game)->img_player_up);
+		mlx_destroy_image((*game)->mlx, (*game)->img_player_left);
+		mlx_destroy_image((*game)->mlx, (*game)->img_player_right);
 		mlx_destroy_image((*game)->mlx, (*game)->img_wall);
 		mlx_destroy_image((*game)->mlx, (*game)->img_ground);
 		mlx_destroy_image((*game)->mlx, (*game)->img_item);

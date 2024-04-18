@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:35:28 by brguicho          #+#    #+#             */
-/*   Updated: 2024/04/09 11:44:55 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/18 21:51:04 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ void	so_long(t_game *game, char **argv)
 	}
 	if (check_map(&game, argv[1]) && gameplay(game, argv[1]) != 1)
 	{
-		if (gameplay(game, argv[1]) != 1)
-			ft_free_all_tab(game);
+		ft_free_all_tab(game);
 	}
 	else
 	{
