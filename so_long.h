@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:19:02 by brguicho          #+#    #+#             */
-/*   Updated: 2024/04/18 22:28:19 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/19 09:33:42 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ char	*get_line_join(int fd, char *tmp);
 
 void	print_map(char **map);
 void	ft_free_all_tab(t_game *game);
+void	ft_free_all_image(t_game **game);
 
 #endif

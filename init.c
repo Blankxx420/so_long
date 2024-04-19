@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/04/18 22:35:58 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/19 09:41:04 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	init_img(t_game *game)
 {
 	if (init_img_player(&game) == 1)
 	{
-		mlx_destroy_image(game->mlx, game->img_player_down);
+		// mlx_destroy_image(game->mlx, game->img_player_down);
 		return (1);
 	}
 	if (init_img_tiles(&game) == 1)
@@ -87,6 +87,7 @@ int	gameplay(t_game *game, char *str)
 	}
 	if (init_img(game) == 1)
 	{
+		ft_free_all_image(&game);
 		mlx_destroy_window(game->mlx, game->win);
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);

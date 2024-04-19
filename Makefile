@@ -6,7 +6,7 @@
 #    By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 09:01:23 by brguicho          #+#    #+#              #
-#    Updated: 2024/04/18 19:59:41 by brguicho         ###   ########.fr        #
+#    Updated: 2024/04/19 09:40:38 by brguicho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS = main.c \
 		checker_map.c \
 		checker_map2.c \
 		checker_map3.c \
-		utils.c
+		utils.c \
+		utils2.c
 
 OBJS = $(SRCS:.c=.o)
 
