@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/04/19 10:11:10 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/19 20:57:33 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ void	init_vars(t_game **game)
 	(*game)->nbr_item = 0;
 	(*game)->inventory = 0;
 	(*game)->nbr_move = 0;
+	(*game)->img_player_down = NULL;
+	(*game)->img_player_up = NULL;
+	(*game)->img_player_left = NULL;
+	(*game)->img_player_right = NULL;
+	(*game)->img_wall = NULL;
+	(*game)->img_ground = NULL;
+	(*game)->img_item = NULL;
+	(*game)->img_exit = NULL;
 }
 
 int	init_window(t_game **game)
