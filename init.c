@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/04/19 09:41:04 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/19 10:07:56 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,9 @@
 int	init_img(t_game *game)
 {
 	if (init_img_player(&game) == 1)
-	{
-		// mlx_destroy_image(game->mlx, game->img_player_down);
 		return (1);
-	}
 	if (init_img_tiles(&game) == 1)
-	{
 		return (1);
-	}
 	return (0);
 }
 
@@ -37,16 +32,14 @@ void	init_vars(t_game **game)
 
 int	init_window(t_game **game)
 {
-	(*game)->mlx = mlx_init();
+	(*game)->mlx =mlx_init();
+	
 	if (!(*game)->mlx)
 		return (1);
 	(*game)->win = mlx_new_window((*game)->mlx,
 			(*game)->width * 48, (*game)->heigth * 48, "So_long");
 	if (!(*game)->win)
-	{
-		free((*game)->mlx);
 		return (1);
-	}
 	return (0);
 }
 
@@ -80,8 +73,10 @@ int	gameplay(t_game *game, char *str)
 	game->width = ft_strlen(game->finalmap[0]);
 	if (init_window(&game) == 1)
 	{
-		mlx_destroy_window(game->mlx, game->win);
-		mlx_destroy_display(game->mlx);
+		if (game->win)
+			mlx_destroy_window(game->mlx, game->win);
+		if (game->mlx)
+			mlx_destroy_display(game->mlx);
 		free(game->mlx);
 		return (1);
 	}
