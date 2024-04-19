@@ -6,7 +6,7 @@
 /*   By: brguicho <brguicho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:21:21 by brguicho          #+#    #+#             */
-/*   Updated: 2024/04/19 10:07:56 by brguicho         ###   ########.fr       */
+/*   Updated: 2024/04/19 10:11:10 by brguicho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ void	init_vars(t_game **game)
 
 int	init_window(t_game **game)
 {
-	(*game)->mlx =mlx_init();
-	
+	(*game)->mlx = mlx_init();
 	if (!(*game)->mlx)
 		return (1);
 	(*game)->win = mlx_new_window((*game)->mlx,
